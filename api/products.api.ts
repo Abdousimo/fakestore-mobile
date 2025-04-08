@@ -1,6 +1,6 @@
 import { ProductType } from "@/entities";
 import { apiClient } from "@/lib/api-client";
-//import { updateProductValidationSchema } from "@/validation";
+import { updateProductValidationSchema } from "@/validation";
 import { AxiosError } from "axios";
 
 export const getProducts = async () : Promise<ProductType[] | undefined> => {
@@ -41,20 +41,20 @@ export const deleteProductById = async (id:number)  => {
       }
 }
 
-// export const updateProductById = async (
-//     data: Zod.infer<typeof updateProductValidationSchema> & { id:number}
-// ) => {
-//     try {
-//         const { id, ...rest } = data;
-//          await apiClient.put(`/products/${id}`, rest);
+export const updateProductById = async (
+    data: Zod.infer<typeof updateProductValidationSchema> & { id:number}
+) => {
+    try {
+        const { id, ...rest } = data;
+         await apiClient.put(`/products/${id}`, rest);
         
-//       } catch (error) {
-//         if (error instanceof AxiosError) {
-//           throw new Error(
-//             error.response?.data?.message || "Failed to delete product"
-//           );
-//         }
-//       }
-// }
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          throw new Error(
+            error.response?.data?.message || "Failed to delete product"
+          );
+        }
+      }
+}
 
 

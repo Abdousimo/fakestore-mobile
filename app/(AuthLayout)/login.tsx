@@ -33,11 +33,13 @@ const Login = () => {
     resolver: zodResolver(loginValidationSchema),
   });
 
+  
+
 
   const { mutate, isPending } = useMutation({
     mutationFn: login,
     onSuccess: (data) => { 
-    router.push("/product/[id]")
+    router.push("/products")
     },
     onError: (error) => {
     if (error instanceof Error) {

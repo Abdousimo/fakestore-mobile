@@ -10,6 +10,10 @@ export default function RootLayout() {
     <>
       <QueryProvider>
         <Stack>
+        <Stack.Screen 
+            name="products" 
+            options={{ headerShown: false }} 
+          />
           <Stack.Screen 
             name="index" 
             options={{ headerShown: false }} 
@@ -19,7 +23,11 @@ export default function RootLayout() {
             options={{ headerShown: false }} 
           />
           <Stack.Screen 
-            name="products" 
+            name="details" 
+            options={{ headerShown: false }} 
+          />
+          <Stack.Screen 
+            name="update" 
             options={{ headerShown: false }} 
           />
         </Stack>
